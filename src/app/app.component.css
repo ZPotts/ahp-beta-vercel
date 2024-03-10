@@ -1,0 +1,78 @@
+.main {
+  width: 100%;
+  max-width: 1152px;
+}
+
+/* NAV SECTION */
+.navSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.navSection button {
+  width: 40px;
+  height: 40px;
+  border: solid 2px #02a6b0;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.5rem;
+  background-color: #555555;
+}
+
+.navSection .activeButton {
+    background-color: #02a6b0 !important;
+    color: white;
+  }
+
+.navSection .completedButton {
+    background-color: #999999 !important;
+    color: white;
+  }
+
+/* QUESTION SECTION */
+.questionSection {
+  margin: 10px 0;
+  padding: 0 20px 10px;
+}
+
+.questionSection .questionText {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.questionContainer {
+  padding: 0 0 10px 0;
+  border-bottom: solid 1px #02a6b0;
+}
+
+/* BUTTON SECTION */
+
+.submitButton, .resultsButton {
+  padding: 5px 15px;
+  border: solid 2px #555555;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1.25rem;
+  background-color: #02a6b0; 
+  cursor: pointer;
+}
+
+.submitButton {
+  margin-top: 10px;
+}
+
+.disabledButton {
+  background-color: #555555 !important;
+  border: solid 2px #555555 !important;
+}
+
+/* RESULT SECTION */
+  .resultsContainer {
+    text-align: center;
+  }
+
+  .resultsButtonContainer {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }

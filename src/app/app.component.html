@@ -1,0 +1,253 @@
+<div class="main">
+  <app-header></app-header>
+
+<div class="navSection">
+  <button 
+    [class.activeButton]="buttonState[1] === 'active'"
+    [class.completedButton]="buttonState[1] === 'completed'" 
+    (click)="changePage(1)">1</button>
+
+  <button  
+    [class.activeButton]="buttonState[2] === 'active'"
+    [class.completedButton]="buttonState[2] === 'completed'"
+    [disabled]="buttonState[2] === 'disabled'"  
+    (click)="changePage(2)">2</button>
+
+  <button  
+    [class.activeButton]="buttonState[3] === 'active'"
+    [class.completedButton]="buttonState[3] === 'completed'"
+    [disabled]="buttonState[3] === 'disabled'"  
+    (click)="changePage(3)">3</button>
+
+  <button  
+    [class.activeButton]="buttonState[4] === 'active'"
+    [class.completedButton]="buttonState[4] === 'completed'"
+    [disabled]="buttonState[4] === 'disabled'"  
+    (click)="changePage(4)">4</button>
+
+  <button  
+    [class.activeButton]="buttonState[5] === 'active'"
+    [class.completedButton]="buttonState[5] === 'completed'"
+    [disabled]="buttonState[5] === 'disabled'"  
+    (click)="changePage(5)">5</button>
+
+  <button  
+    [class.activeButton]="buttonState[6] === 'active'"
+    [class.completedButton]="buttonState[6] === 'completed'"
+    [disabled]="buttonState[6] === 'disabled'"  
+    (click)="changePage(6)">6</button>
+
+  <button  
+    [class.activeButton]="buttonState[7] === 'active'"
+    [class.completedButton]="buttonState[7] === 'completed'"
+    [disabled]="buttonState[7] === 'disabled'"  
+    (click)="changePage(7)">7</button>
+    
+</div><!-- /.navSection -->
+
+<div class="questionSection">
+<div id="form-part-1"  *ngIf="currentPage === 1">
+  <form [formGroup]="questionsForm1" (ngSubmit)="onSubmit(1)">
+  <div *ngFor="let question of QUESTIONLIST">
+    <div *ngIf="question.questionId === 1 || question.questionId === 2 || question.questionId === 3">
+      <div class="questionContainer">
+      <p class="questionText">{{question.questionText}}</p>
+      <div *ngFor="let answer of question.answers">
+        <input type="radio" id="q{{answer.answerId}}o{{question.questionId}}" formControlName="q{{question.questionId}}" value="{{answer.points}}">
+        <label for="q{{questionId}}o{{answer.answerId}}">{{answer.answerText}}</label><br> 
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <button class="submitButton" 
+    [class.disabledButton]="!questionsForm1.valid" 
+    type="submit" 
+    [disabled]="!questionsForm1.valid">Next</button>
+</form>
+</div>
+
+<div id="form-part-2" *ngIf="currentPage === 2" [@slideIn]>
+  form2
+  <form [formGroup]="questionsForm2" (ngSubmit)="onSubmit(2)">
+    <div *ngFor="let question of QUESTIONLIST">
+      <div *ngIf="question.questionId === 4 || question.questionId === 5 || question.questionId === 6">
+        <p class="questionText">{{question.questionText}}</p>
+        <div *ngFor="let answer of question.answers">
+          <input type="radio" id="q{{answer.answerId}}o{{question.questionId}}" formControlName="q{{question.questionId}}" value="{{answer.points}}">
+          <label for="q{{questionId}}o{{answer.answerId}}">{{answer.answerText}}</label><br> 
+        </div>
+      </div>
+    </div>
+    <button class="submitButton"
+    [class.disabledButton]="!questionsForm2.valid" 
+    type="submit" 
+    [disabled]="!questionsForm2.valid">Next</button>
+  </form>
+</div>
+
+<div id="form-part-3" *ngIf="currentPage === 3" [@slideIn]>
+  form3
+  <form [formGroup]="questionsForm3" (ngSubmit)="onSubmit(3)">
+    <div *ngFor="let question of QUESTIONLIST">
+      <div *ngIf="question.questionId === 7 || question.questionId === 8 || question.questionId === 9">
+        <p class="questionText">{{question.questionText}}</p>
+        <div *ngFor="let answer of question.answers">
+          <input type="radio" id="q{{answer.answerId}}o{{question.questionId}}" formControlName="q{{question.questionId}}" value="{{answer.points}}">
+          <label for="q{{questionId}}o{{answer.answerId}}">{{answer.answerText}}</label><br> 
+        </div>
+      </div>
+    </div>
+    <button class="submitButton"
+      [class.disabledButton]="!questionsForm3.valid" 
+     type="submit" 
+     [disabled]="!questionsForm3.valid">Next</button>
+  </form>
+</div>
+
+<div id="form-part-4" *ngIf="currentPage === 4" [@slideIn]>
+  form3
+  <form [formGroup]="questionsForm4" (ngSubmit)="onSubmit(4)">
+    <div *ngFor="let question of QUESTIONLIST">
+      <div *ngIf="question.questionId === 10 || question.questionId === 11 || question.questionId === 12">
+        <p class="questionText">{{question.questionText}}</p>
+        <div *ngFor="let answer of question.answers">
+          <input type="radio" id="q{{answer.answerId}}o{{question.questionId}}" formControlName="q{{question.questionId}}" value="{{answer.points}}">
+          <label for="q{{questionId}}o{{answer.answerId}}">{{answer.answerText}}</label><br> 
+        </div>
+      </div>
+    </div>
+    <button class="submitButton" 
+    [class.disabledButton]="!questionsForm4.valid" 
+    type="submit" 
+    [disabled]="!questionsForm4.valid">Next</button>
+  </form>
+</div>
+
+<div id="form-part-5" *ngIf="currentPage === 5" [@slideIn]>
+  form3
+  <form [formGroup]="questionsForm5" (ngSubmit)="onSubmit(5)">
+    <div *ngFor="let question of QUESTIONLIST">
+      <div *ngIf="question.questionId === 13 || question.questionId === 14 || question.questionId === 15">
+        <p class="questionText">{{question.questionText}}</p>
+        <div *ngFor="let answer of question.answers">
+          <input type="radio" id="q{{answer.answerId}}o{{question.questionId}}" formControlName="q{{question.questionId}}" value="{{answer.points}}">
+          <label for="q{{questionId}}o{{answer.answerId}}">{{answer.answerText}}</label><br> 
+        </div>
+      </div>
+    </div>
+    <button class="submitButton" 
+    [class.disabledButton]="!questionsForm5.valid" 
+    type="submit" 
+    [disabled]="!questionsForm5.valid">Next</button>
+  </form>
+</div>
+
+<div id="form-part-6" *ngIf="currentPage === 6" [@slideIn]>
+  form3
+  <form [formGroup]="questionsForm6" (ngSubmit)="onSubmit(6)">
+    <div *ngFor="let question of QUESTIONLIST">
+      <div *ngIf="question.questionId === 16 || question.questionId === 17 || question.questionId === 18">
+        <p class="questionText">{{question.questionText}}</p>
+        <div *ngFor="let answer of question.answers">
+          <input type="radio" id="q{{answer.answerId}}o{{question.questionId}}" formControlName="q{{question.questionId}}" value="{{answer.points}}">
+          <label for="q{{questionId}}o{{answer.answerId}}">{{answer.answerText}}</label><br> 
+        </div>
+      </div>
+    </div>
+    <button class="submitButton" 
+    [class.disabledButton]="!questionsForm6.valid" 
+    type="submit" 
+    [disabled]="!questionsForm6.valid">Next</button>
+  </form>
+</div>
+
+<div id="form-part-7" *ngIf="currentPage === 7" [@slideIn]>
+  form3
+  <form [formGroup]="questionsForm7" (ngSubmit)="onSubmit(7)">
+    <div *ngFor="let question of QUESTIONLIST">
+      <div *ngIf="question.questionId === 19 || question.questionId === 20">
+        <p class="questionText">{{question.questionText}}</p>
+        <div *ngFor="let answer of question.answers">
+          <input type="radio" id="q{{answer.answerId}}o{{question.questionId}}" formControlName="q{{question.questionId}}" value="{{answer.points}}">
+          <label for="q{{questionId}}o{{answer.answerId}}">{{answer.answerText}}</label><br> 
+        </div>
+      </div>
+    </div>
+    <button class="submitButton" 
+    [class.disabledButton]="!questionsForm7.valid" 
+    type="submit" 
+    [disabled]="!questionsForm7.valid">Submit</button>
+  </form>
+</div>
+
+<div id="form-part-8" *ngIf="currentPage === 8" [@slideIn]>
+  <div class="resultsContainer">
+    <h3>Based on your answers, we recommend the following:</h3> 
+    <div id="results" *ngIf="userRecommendation === 'owner'">
+        <h3>Owning your own business is clearly your path!</h3>
+        <p>You've got all the traits of a small business owner. Whether it's running your own suite or booth, a small spa, or opening a multiple-esthetician facility, you're ready and prepared for the challenge. From marketing to business planning to leadership skills, you've got what it takes to go big and fly solo. The benefit of schedule flexibility outweighs the financial ebb and flow. </p>
+        <h3>Recommended Toolkit:</h3>
+        <div class="resultsButtonContainer">
+          <a href="https://test.associatedhairprofessionals.com/members/career-toolkits/business-start-up" target="_blank">
+            <button class="resultsButton">
+              Business Start-Up Toolkit
+            </button>
+          </a>
+        </div>
+    </div>
+
+    <div id="results" *ngIf="userRecommendation === 'versatile'">
+      <p>Business ownership intrigues you, but you're a little apprehensive about taking the leap. With the right support, you might be ready to dive into your own business. Or maybe you've already started your own business, but you're struggling to get it up on its feet. Putting some more focus into your business and management skills could go far in helping you get your business where you want it to be. </p>
+       <h3>Recommended Toolkits:</h3>
+       <div class="resultsButtonContainer"> 
+       <a href="https://test.associatedhairprofessionals.com/members/career-toolkits/business-start-up" target="_blank">
+        <button class="resultsButton">
+          Business Start-Up Toolkit
+        </button>
+      </a>
+    </div>
+
+      <div class="resultsButtonContainer">
+        <a href="https://test.associatedhairprofessionals.com/members/career-toolkits/employee-success" target="_blank">
+          <button class="resultsButton">
+            Employee Success Toolkit
+          </button> 
+        </a>
+      </div>
+    </div>
+
+    <div id="results" *ngIf="userRecommendation === 'contractor'">
+      <div><h3>Independent contract employee is the way to go!</h3> 
+        <p>You might be a good contract employee for a spa or have a mix that includes self-employment and working for others. You are at a point in your career where having less responsibility feels attractive. </p>
+         <h3>Recommended Toolkit:</h3> 
+
+         <div class="resultsButtonContainer">
+          <a href="https://test.associatedhairprofessionals.com/members/career-toolkits/employee-success" target="_blank">
+            <button class="resultsButton">
+              Employee Success Toolkit
+            </button> 
+          </a>
+          </div>
+      </div>
+    </div>
+
+    <div id="results" *ngIf="userRecommendation === 'employee'">
+      <div><h3>You are perfect for a spa or clinic!</h3> 
+        <p>You are a perfect candidate to work in a spa or clinic as an employee, where the responsibilities of the business (marketing, management, inventory control) are handled by others, while you get to focus on clients. You may not have a recurring clientele or see the results of your treatment over time in this setting, but you enjoy meeting new people and it's a reasonable trade-off for not having to shoulder the stress of business ownership. </p>
+         <h3>Recommended Toolkit:</h3>
+         <div class="resultsButtonContainer"> 
+         <a href="https://test.associatedhairprofessionals.com/members/career-toolkits/employee-success" target="_blank">
+          <button class="resultsButton">
+            Employee Success Toolkit
+          </button> 
+        </a>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /.questionSection -->
+</div><!-- /.main -->
