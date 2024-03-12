@@ -628,9 +628,7 @@ export class AppComponent {
 
   calculateRecommendation(totalScore: number): string {
     console.log("calc rec called with Total score: " + totalScore);
-    if (totalScore > 65) {
-      return "owner";
-    } else if (totalScore <= 65 && totalScore > 50 ) {
+    if (totalScore > 50) {
       return "versatile";
     } else if (totalScore <= 50 && totalScore > 35 ) {
       return "contractor";
